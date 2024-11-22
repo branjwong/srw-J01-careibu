@@ -2,13 +2,15 @@
   "name": "careibu-login",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "user:create": "node scripts/create-user.js",
-    "user:login": "node scripts/sign-in.js"
+    "user:login": "node scripts/sign-in.js",
+    "user:manage": "node scripts/manage-user.js"
   },
   "dependencies": {
     "firebase": "^11.0.2",
