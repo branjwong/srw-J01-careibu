@@ -29,8 +29,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Production Apps would not have .env files with API keys committed to git, but for this dummy application, we allow it.
 # env files (can opt-in for committing if needed)
-.env*
+# .env*
 
 # vercel
 .vercel

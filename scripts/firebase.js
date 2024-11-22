@@ -1,12 +1,12 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBFuCItlv7RpgkgTSA528yAatwExhKLyTs",
-  authDomain: "careibu-login.firebaseapp.com",
-  projectId: "careibu-login",
-  storageBucket: "careibu-login.firebasestorage.app",
-  messagingSenderId: "33838713949",
-  appId: "1:33838713949:web:fe59c4678f86ab6b6091b4"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID
 };
 
 export default initializeApp(firebaseConfig);
