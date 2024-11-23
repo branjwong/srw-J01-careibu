@@ -2,9 +2,9 @@
 
 import Form from 'next/form'
 
-import { login } from '@/app/actions'
+import { login } from '@/app/actions/auth'
 
-export default function SignInForm() {
+export default function LoginForm() {
     return (
         <Form className="space-y-6" action={login}>
             <div>

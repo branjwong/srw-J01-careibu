@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import SignInForm from "./signInForm";
+import LoginForm from "./ui/login-form";
 
 export default function Home() {
     return (
@@ -16,7 +16,7 @@ export default function Home() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <SignInForm />
+                <LoginForm />
                 <p className="mt-10 text-center text-sm/6 text-gray-500">
                     Not a member?
                     <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
