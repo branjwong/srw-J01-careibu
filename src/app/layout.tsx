@@ -2,20 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-
-import app from "./firebase.js";
-
-const auth = getAuth(app);
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        const uid = user.uid;
-        console.log(`Signed in ${uid}.`)
-    } else {
-        console.log(`User signed out.`)
-    }
-});
-
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
     variable: "--font-geist-sans",
