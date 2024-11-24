@@ -8,7 +8,7 @@ export default function Login() {
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <Image
                     className="mx-auto h-10 w-auto"
-                    src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
+                    src="https://careibu.com/wp-content/uploads/2021/08/careibu-siteicon.svg"
                     alt="Your Company"
                     width={200}
                     height={200} />

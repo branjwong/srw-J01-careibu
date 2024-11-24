@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
               protocol: 'https',
-              hostname: 'tailwindui.com',
+              hostname: 'careibu.com',
               port: '',
             },
             {
