@@ -10,7 +10,9 @@
     "lint": "next lint",
     "user:create": "node scripts/create-user.js",
     "user:login": "node scripts/sign-in.js",
-    "user:manage": "node scripts/manage-user.js"
+    "user:manage": "node scripts/manage-user.js",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -22,6 +24,7 @@
     "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "@tailwindcss/forms": "^0.5.9",
     "@types/node": "^20",
     "@types/react": "^18",

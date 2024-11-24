@@ -18,8 +18,6 @@ const navigation = [
 ]
 
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
     { name: 'Logout', href: '/api/auth/logout' },
 ]
 
@@ -37,7 +35,7 @@ export default function Dashboard() {
                             <div className="shrink-0">
                                 <Image
                                     alt="Your Company"
-                                    src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                                    src="https://careibu.com/wp-content/uploads/2021/08/careibu-siteicon.svg"
                                     className="size-8"
                                     width={200}
                                     height={200}
