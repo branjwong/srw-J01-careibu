@@ -1,6 +1,7 @@
 import { jwtVerify, decodeProtectedHeader, importX509 } from 'jose'
 import { cookies } from 'next/headers'
-import { USER_TOKEN } from './constants'
+
+export const USER_TOKEN = 'user-token'
 
 // interface UserJwtPayload {
 //     iss: string,

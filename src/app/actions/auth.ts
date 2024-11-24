@@ -16,7 +16,6 @@ export async function login(formData: FormData) {
         const credential = await signInWithEmailAndPassword(auth, email, password);
         const token = await credential.user.getIdToken();
         await createSession(token);
-        console.log("[auth] token", token)
     }
     catch (error) {
         console.log(`Error signing in ${email}.`)
