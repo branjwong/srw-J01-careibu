@@ -1,4 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <a href="https://careibu.com/" target="_blank">
+    <picture>
+      <img alt="Tailwind CSS" src="./public/careibu-logo.svg">
+    </picture>
+  </a>
+</p>
+
+<p align="center">
+  Careibu Take Home Assignment
+</p>
+
+---
+
+## Environment Setup
+
+This works app is run best from a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers).
+
+If you don't use devcontainers, you can run:
+
+```bash
+npm install
+```
 
 ## Getting Started
 
@@ -6,31 +28,41 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running Tests
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project uses [Playwright](https://playwright.dev/) for end-to-end testing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To run tests, you can see the results in terminal:
 
-## Learn More
+```bash
+npm run test
+```
 
-To learn more about Next.js, take a look at the following resources:
+or interact with them through Playwright's UI:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run test:ui
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Dependencies
 
-## Deploy on Vercel
+-   React (UI Componentization and Interactivity)
+-   Firebase (Auth)
+-   Tailwind CSS (design system framework)
+-   Next.js (React Server-side Rendering, Routing, Data Fetching, Middleware)
+-   jose (JSON Web Tokens (JWT) support)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Requirements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **The assignment:**
+>
+> -   Create a registration page using React.js (the Careibu codebase is largely built with React) that is connected to a demo environment in Firebase. You can set up the Firebase environment as a dev environment to keep things simple.
+> -   Create a login page where users can log in with a username and password created using the registration page from step 1.
+>
+> **Rules:**
+>
+> -   It’s fine to use AI for documentation/help, but don’t copy code 1:1. The goal of this assignment is to showcase your skills, not ChatGPT’s.
+> -   Please document your code with comments to clearly explain what you’re doing and why.
+> -   If you can, make it look nice! It’s perfectly fine to use a CSS framework like Tailwind to achieve this.
