@@ -42,7 +42,6 @@ export async function verifyAuth() {
 
     const keys = await response.json();
     const x509 = keys[kid];
-    console.log("[auth] x509", x509);
 
     try {
         const publicKey = await importX509(x509, alg)
@@ -56,7 +55,6 @@ export async function verifyAuth() {
         )
         return verified.payload // as UserJwtPayload
     } catch (err) {
-        console.log(err);
-        throw new AuthError('Your token has expired.')
+        console.error(err, { method: "middleware", logs: "Error verifying token." });
     }
 }

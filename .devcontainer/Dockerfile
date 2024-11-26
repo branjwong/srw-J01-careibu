@@ -1,1 +1,1 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm
+FROM mcr.microsoft.com/playwright:v1.49.0-noble

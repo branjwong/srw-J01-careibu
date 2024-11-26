@@ -18,9 +18,7 @@ export async function login(formData: FormData) {
         await createSession(token);
     }
     catch (error) {
-        console.log(`Error signing in ${email}.`)
-        console.log(error);
-        throw error;
+        console.log(error, { method: "auth.login", logs: `Error signing in ${email}.` });
     }
 
     redirect('/dashboard');

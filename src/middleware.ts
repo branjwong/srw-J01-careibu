@@ -17,14 +17,13 @@ export default async function middleware(req: NextRequest) {
 
     // 3. Decrypt the session from the cookie
     const token = await verifyAuth().catch((err) => {
-        console.error(err.message)
+        console.error(err, { method: "middleware", logs: err.message })
     })
     const user = token;
-    console.log("user token", user);
 
     // 4. Redirect to /login if the user is not authenticated
     if (isProtectedRoute && !user) {
-        console.log("[middleware] Rerouting to login.")
+        console.log("[middleware] Rerouting to login.");
         return NextResponse.redirect(new URL('/login', req.nextUrl))
     }
 

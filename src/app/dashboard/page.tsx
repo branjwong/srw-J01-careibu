@@ -73,7 +73,9 @@ export default function Dashboard() {
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">
                                     <div>
-                                        <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                        <MenuButton
+                                        data-testid="user-head"
+                                        className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only">Open user menu</span>
                                             <Image alt="" src={user.imageUrl} className="size-8 rounded-full"
@@ -88,6 +90,7 @@ export default function Dashboard() {
                                         {userNavigation.map((item) => (
                                             <MenuItem key={item.name}>
                                                 <a
+                                                    data-testid={`user-nav-${item.name}`}
                                                     href={item.href}
                                                     className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
                                                 >
