@@ -1,12 +1,19 @@
 "use client";
 
+import { useActionState } from "react";
 import Form from "next/form";
 
-import { login } from "@/app/actions/auth";
+import login from "@/app/auth/actions/login";
+
+const initialState = {
+    message: "",
+};
 
 export default function LoginForm() {
+    const [state, formAction] = useActionState(login, initialState);
+
     return (
-        <Form className="space-y-6" action={login}>
+        <Form className="space-y-6" action={formAction}>
             <div>
                 <label
                     htmlFor="email"
@@ -34,14 +41,6 @@ export default function LoginForm() {
                     >
                         Password
                     </label>
-                    <div className="text-sm">
-                        <a
-                            href="#"
-                            className="font-semibold text-indigo-600 hover:text-indigo-500"
-                        >
-                            Forgot password?
-                        </a>
-                    </div>
                 </div>
                 <div className="mt-2">
                     <input
@@ -54,7 +53,10 @@ export default function LoginForm() {
                     />
                 </div>
             </div>
-
+            <div>
+                <p className={state?.message ? "hidden" : "h-4"}> </p>
+                <p className="text-rose-600">{state?.message}</p>
+            </div>
             <div>
                 <button
                     type="submit"
