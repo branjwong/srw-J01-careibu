@@ -32,6 +32,14 @@ export default async function register(prevState: any, formData: FormData) {
                     "The password you’ve entered is too weak. Try another password.",
             };
 
+        if (
+            error instanceof FirebaseError &&
+            error.code == "auth/email-already-in-use"
+        )
+            return {
+                message: "The email you’ve entered is already in use.",
+            };
+
         console.error(error, {
             method: "auth.login",
             logs: `Error signing in ${email}.`,
