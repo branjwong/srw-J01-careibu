@@ -9,7 +9,8 @@
         "vscode": {
             "extensions": [
                 "ronnidc.nunjucks",
-                "okitavera.vscode-nunjucks-formatter"
+                "okitavera.vscode-nunjucks-formatter",
+                "esbenp.prettier-vscode"
             ]
         }
     }

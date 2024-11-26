@@ -1,7 +1,7 @@
-import { jwtVerify, decodeProtectedHeader, importX509 } from 'jose'
-import { cookies } from 'next/headers'
+import { jwtVerify, decodeProtectedHeader, importX509 } from "jose";
+import { cookies } from "next/headers";
 
-export const USER_TOKEN = 'user-token'
+export const USER_TOKEN = "user-token";
 
 // interface UserJwtPayload {
 //     iss: string,
@@ -17,25 +17,27 @@ export const USER_TOKEN = 'user-token'
 //     sign_in_provider: string
 // }
 
-export class AuthError extends Error { }
+export class AuthError extends Error {}
 
 /**
  * Verifies the user's JWT token and returns its payload if it's valid.
  */
 export async function verifyAuth() {
-    const token = (await cookies()).get(USER_TOKEN)?.value
+    const token = (await cookies()).get(USER_TOKEN)?.value;
 
-    if (!token) throw new AuthError('Missing user token');
+    if (!token) throw new AuthError("Missing user token");
 
     const decodedToken = decodeProtectedHeader(token);
 
     const alg = decodedToken.alg;
-    if (!alg) throw new AuthError('Missing alg');
+    if (!alg) throw new AuthError("Missing alg");
 
     const kid = decodedToken.kid;
-    if (!kid) throw new AuthError('Missing kid');
+    if (!kid) throw new AuthError("Missing kid");
 
-    const response = await fetch('https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com');
+    const response = await fetch(
+        "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com"
+    );
     if (!response.ok) {
         throw new Error(`Get Google Keys Response status: ${response.status}`);
     }
@@ -44,17 +46,20 @@ export async function verifyAuth() {
     const x509 = keys[kid];
 
     try {
-        const publicKey = await importX509(x509, alg)
+        const publicKey = await importX509(x509, alg);
         const verified = await jwtVerify(
             token,
-            publicKey,
+            publicKey
             // {
             //     issuer: "https://securetoken.google.com/careibu-login",
             //     audience: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-w1a9x%40careibu-login.iam.gserviceaccount.com"
-            // }   
-        )
-        return verified.payload // as UserJwtPayload
+            // }
+        );
+        return verified.payload; // as UserJwtPayload
     } catch (err) {
-        console.error(err, { method: "middleware", logs: "Error verifying token." });
+        console.error(err, {
+            method: "middleware",
+            logs: "Error verifying token.",
+        });
     }
 }

@@ -1,14 +1,17 @@
-'use client';
+"use client";
 
-import Form from 'next/form'
+import Form from "next/form";
 
-import { login } from '@/app/actions/auth'
+import { login } from "@/app/actions/auth";
 
 export default function LoginForm() {
     return (
         <Form className="space-y-6" action={login}>
             <div>
-                <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
+                <label
+                    htmlFor="email"
+                    className="block text-sm/6 font-medium text-gray-900"
+                >
                     Email address
                 </label>
                 <div className="mt-2">
@@ -25,11 +28,17 @@ export default function LoginForm() {
 
             <div>
                 <div className="flex items-center justify-between">
-                    <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
+                    <label
+                        htmlFor="password"
+                        className="block text-sm/6 font-medium text-gray-900"
+                    >
                         Password
                     </label>
                     <div className="text-sm">
-                        <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                        <a
+                            href="#"
+                            className="font-semibold text-indigo-600 hover:text-indigo-500"
+                        >
                             Forgot password?
                         </a>
                     </div>
@@ -54,5 +63,6 @@ export default function LoginForm() {
                     Sign in
                 </button>
             </div>
-        </Form>);
+        </Form>
+    );
 }

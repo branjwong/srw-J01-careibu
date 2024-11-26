@@ -5,17 +5,17 @@ const nextConfig: NextConfig = {
         dangerouslyAllowSVG: true,
         remotePatterns: [
             {
-              protocol: 'https',
-              hostname: 'careibu.com',
-              port: '',
+                protocol: "https",
+                hostname: "careibu.com",
+                port: "",
             },
             {
-              protocol: 'https',
-              hostname: 'images.unsplash.com',
-              port: '',
+                protocol: "https",
+                hostname: "images.unsplash.com",
+                port: "",
             },
         ],
-      },
+    },
 };
 
 export default nextConfig;
