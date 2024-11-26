@@ -4,20 +4,20 @@ import path from "path";
 const authFile = path.join(__dirname, "../playwright/.auth/user.json");
 
 test("has title", async ({ page }) => {
-    await page.goto("./login");
+    await page.goto("/auth/login");
     // Expect a title "to contain" a substring.
     await expect(page).toHaveTitle(/Login/);
 });
 
 test("redirects if not authenticated", async ({ page }) => {
-    await page.goto("./dashboard");
+    await page.goto("/dashboard");
 
     // Expects URL to redirect to dashboard.
     await expect(page).toHaveURL(/.*login/);
 });
 
 test("login failure", async ({ page }) => {
-    await page.goto("./login");
+    await page.goto("/auth/login");
     await page.getByLabel("email").fill("branjwong@hey.com");
     await page.getByLabel("password").fill("idk");
 
@@ -31,7 +31,7 @@ test("login failure", async ({ page }) => {
 
 test("login success", async ({ page }) => {
     // Perform authentication steps. Replace these actions with your own.
-    await page.goto("./login");
+    await page.goto("/auth/login");
     await page.getByLabel("email").fill("branjwong@hey.com");
     await page.getByLabel("password").fill("1234test");
 

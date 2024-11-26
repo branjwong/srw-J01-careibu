@@ -1,6 +1,5 @@
 "use client";
 
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 export default function Home() {
@@ -25,7 +24,7 @@ export default function Home() {
                     </div>
                     <div className="lg:flex lg:flex-1 lg:justify-end">
                         <a
-                            href="/login"
+                            href="/auth/login"
                             className="text-sm/6 font-semibold text-gray-900"
                         >
                             Log in <span aria-hidden="true">&rarr;</span>

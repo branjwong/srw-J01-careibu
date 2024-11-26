@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-    await page.goto("./dashboard");
+    await page.goto("/dashboard");
 });
 
 test("has title", async ({ page }) => {
@@ -15,5 +15,5 @@ test("logout", async ({ page }) => {
     await page.getByTestId("user-nav-Logout").click();
 
     // Expects URL to redirect to dashboard.
-    await page.waitForURL("./");
+    await page.waitForURL("/");
 });
