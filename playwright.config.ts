@@ -35,6 +35,7 @@ export default defineConfig({
     /* Configure projects for major browsers */
     projects: [
         { name: "setup", testMatch: /.*\.setup\.ts/ },
+
         {
             dependencies: ["setup"],
             name: "chromium",
@@ -49,15 +50,6 @@ export default defineConfig({
             name: "firefox",
             use: {
                 ...devices["Desktop Firefox"],
-                storageState: "playwright/.auth/user.json",
-            },
-        },
-
-        {
-            dependencies: ["setup"],
-            name: "webkit",
-            use: {
-                ...devices["Desktop Safari"],
                 storageState: "playwright/.auth/user.json",
             },
         },
