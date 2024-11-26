@@ -1,23 +1,21 @@
 "use server";
 
 import { FirebaseError } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { redirect } from "next/navigation";
 
 import app from "@/app/lib/firebase";
 import { createSession } from "@/app/lib/session";
 
-import { State } from "./types";
-
-export default async function login(prevState: any, formData: FormData) {
+export default async function register(prevState: any, formData: FormData) {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
     const auth = getAuth(app);
-    console.log(`[auth] Attempting sign-in for ${email}`);
+    console.log(`[auth] Attempting registration for ${email}`);
 
     try {
-        const credential = await signInWithEmailAndPassword(
+        const credential = await createUserWithEmailAndPassword(
             auth,
             email,
             password
@@ -27,9 +25,12 @@ export default async function login(prevState: any, formData: FormData) {
     } catch (error) {
         if (
             error instanceof FirebaseError &&
-            error.code == "auth/invalid-credential"
+            error.code == "auth/weak-password"
         )
-            return { message: "The password you’ve entered is incorrect." };
+            return {
+                message:
+                    "The password you’ve entered is too weak. Try another password.",
+            };
 
         console.error(error, {
             method: "auth.login",
@@ -37,8 +38,8 @@ export default async function login(prevState: any, formData: FormData) {
         });
 
         return {
-            message: "An error occurred while logging into your account.",
-        } as State;
+            message: "An error occurred while registering your account.",
+        };
     }
 
     redirect("/dashboard");

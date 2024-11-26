@@ -3,14 +3,23 @@
 import { useActionState } from "react";
 import Form from "next/form";
 
-import login from "@/app/auth/actions/login";
+import { State } from "../actions/types";
 
-const initialState = {
+const initialState: State = {
     message: "",
 };
 
-export default function LoginForm() {
-    const [state, formAction] = useActionState(login, initialState);
+export default function AuthForm({
+    buttonText,
+    authAction,
+}: {
+    buttonText: string;
+    authAction: (
+        state: Awaited<State>,
+        payload: FormData
+    ) => State | Promise<State>;
+}) {
+    const [state, formAction] = useActionState(authAction, initialState);
 
     return (
         <Form className="space-y-6" action={formAction}>
@@ -54,7 +63,6 @@ export default function LoginForm() {
                 </div>
             </div>
             <div>
-                <p className={state?.message ? "hidden" : "h-4"}> </p>
                 <p className="text-rose-600">{state?.message}</p>
             </div>
             <div>
@@ -62,7 +70,7 @@ export default function LoginForm() {
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                    Sign in
+                    {buttonText}
                 </button>
             </div>
         </Form>
