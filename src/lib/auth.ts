@@ -1,7 +1,7 @@
 import { jwtVerify, decodeProtectedHeader, importX509 } from "jose";
 import { cookies } from "next/headers";
 
-import { USER_TOKEN, TOKEN_API } from "./constants";
+import { USER_TOKEN, TOKEN_API, ISSUER, AUDIENCE } from "./constants";
 
 export class AuthError extends Error {}
 
@@ -33,14 +33,10 @@ export async function verifyAuth() {
         const x509 = keys[kid];
 
         const publicKey = await importX509(x509, alg);
-        const verified = await jwtVerify(
-            token,
-            publicKey
-            // {
-            //     issuer: "https://securetoken.google.com/careibu-login",
-            //     audience: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-w1a9x%40careibu-login.iam.gserviceaccount.com"
-            // }
-        );
+        const verified = await jwtVerify(token, publicKey, {
+            issuer: ISSUER,
+            audience: AUDIENCE,
+        });
 
         return verified.payload;
     } catch (err) {
