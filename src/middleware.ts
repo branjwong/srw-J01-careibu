@@ -15,9 +15,7 @@ export default async function middleware(req: NextRequest) {
     const isPublicRoute = publicRoutes.includes(path);
 
     // 3. Decrypt the session from the cookie
-    const token = await verifyAuth().catch((err) => {
-        console.error(err, { method: "middleware", logs: err.message });
-    });
+    const token = await verifyAuth();
     const user = token;
 
     // 4. Redirect to /login if the user is not authenticated

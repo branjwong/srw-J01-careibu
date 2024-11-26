@@ -4,7 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { redirect } from "next/navigation";
 
 import app from "@/app/lib/firebase";
-import { createSession } from "../lib/session";
+import { createSession } from "@/app/lib/session";
 
 export async function login(formData: FormData) {
     const email = formData.get("email") as string;

@@ -1,6 +1,7 @@
 import "server-only";
+
 import { cookies } from "next/headers";
-import { USER_TOKEN } from "@/lib/auth";
+import { USER_TOKEN } from "@/lib/constants";
 
 export async function createSession(token: string) {
     console.log("Saving session.");
