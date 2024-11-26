@@ -4,6 +4,16 @@ import { State } from "../actions/types";
 
 import AuthForm from "./auth-form";
 
+/**
+ * A page for authentication screens.
+ * params:
+ * - headerText: text rendered at the header
+ * - buttonText: text rendered by the submission button
+ * - authAction: a server action to be called upon form submission
+ * - linkQuestion: text rendered after the submission button
+ * - linkText: text rendered after the `linkQuestion`
+ * - linkUrl: where the user is routed to upon clicking on the `linkText`
+ */
 export default function AuthPage({
     headerText,
     buttonText,

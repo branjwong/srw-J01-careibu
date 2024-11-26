@@ -9,6 +9,12 @@ const initialState: State = {
     message: "",
 };
 
+/**
+ * A form for authentication screens.
+ * params:
+ * - buttonText: text rendered by the submission button
+ * - authAction: a server action to be called upon form submission
+ */
 export default function AuthForm({
     buttonText,
     authAction,

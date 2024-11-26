@@ -9,6 +9,9 @@ import { createSession } from "@/app/lib/session";
 
 import { State } from "./types";
 
+/**
+ * A server action that logs a user in. The server retrieves a token from the Firebase authentication server and packages it as a session.
+ */
 export default async function login(prevState: any, formData: FormData) {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
