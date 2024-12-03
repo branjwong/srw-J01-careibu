@@ -13,7 +13,7 @@ test("redirects if not authenticated", async ({ page }) => {
     await page.goto("/dashboard");
 
     // Expects URL to redirect to dashboard.
-    await expect(page).toHaveURL(/.*login/);
+    await expect(page).toHaveURL("/auth/login");
 });
 
 test("login failure", async ({ page }) => {
