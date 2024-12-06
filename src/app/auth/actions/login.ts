@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import app from "@/app/lib/firebase";
 import { createSession } from "@/app/lib/session";
 
-import { State } from "./types";
+import { AuthFormState } from "./types";
 
 /**
  * A server action that logs a user in. The server retrieves a token from the Firebase authentication server and packages it as a session.
@@ -41,7 +41,7 @@ export default async function login(prevState: any, formData: FormData) {
 
         return {
             message: "An error occurred while logging into your account.",
-        } as State;
+        } as AuthFormState;
     }
 
     redirect("/dashboard");

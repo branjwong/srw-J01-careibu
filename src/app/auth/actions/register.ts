@@ -8,7 +8,7 @@ import app from "@/app/lib/firebase";
 import { createSession } from "@/app/lib/session";
 
 /**
- * A server action that registers a user. The server retrieves a token from the Firebase authentication server and packages it as a session.
+ * A server action that registers a user. The server establishes a set of credentials using the sumitted email and password, retrieves a token from the Firebase authentication server, and packages it as a session.
  */
 export default async function register(prevState: any, formData: FormData) {
     const email = formData.get("email") as string;

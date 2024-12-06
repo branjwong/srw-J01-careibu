@@ -3,28 +3,27 @@
 import { useActionState } from "react";
 import Form from "next/form";
 
-import { State } from "../actions/types";
+import { AuthFormState } from "../actions/types";
 
-const initialState: State = {
+const initialState: AuthFormState = {
     message: "",
 };
 
 /**
- * A form for authentication screens.
- * params:
- * - buttonText: text rendered by the submission button
- * - authAction: a server action to be called upon form submission
+ * @param {Object}  options - options for the form
+ * @param {string}  options.buttonText - text rendered by the submission button
+ * @param {function}  options.authAction - a server action to be called upon form submission
+ * @returns {JSX.Element} a form for authentication screens
  */
-export default function AuthForm({
-    buttonText,
-    authAction,
-}: {
+export default function AuthForm(options: {
     buttonText: string;
     authAction: (
-        state: Awaited<State>,
+        state: Awaited<AuthFormState>,
         payload: FormData
-    ) => State | Promise<State>;
-}) {
+    ) => AuthFormState | Promise<AuthFormState>;
+}): JSX.Element {
+    const { buttonText, authAction } = options;
+
     const [state, formAction] = useActionState(authAction, initialState);
 
     return (

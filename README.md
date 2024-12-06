@@ -46,6 +46,8 @@ or interact with them through Playwright's UI:
 npm run test:ui
 ```
 
+Tests are maintained in the `/tests` directory.
+
 ## Dependencies
 
 -   React (UI Componentization and Interactivity)
