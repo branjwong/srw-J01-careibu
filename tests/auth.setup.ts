@@ -11,7 +11,6 @@ test("has title", async ({ page }) => {
 
 [
     "/dashboard",
-    "/dashboard/home",
     "/dashboard/onboarding",
     "/dashboard/onboarding/background",
     "/dashboard/onboarding/personal",

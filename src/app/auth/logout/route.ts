@@ -4,7 +4,7 @@ import { USER_TOKEN } from "@/lib/constants";
 import { cookies } from "next/headers";
 
 /**
- * Navigating to `/api/auth/logout` deletes their token from their browser's memory.
+ * Navigating to `/auth/logout` deletes their token from their browser's memory.
  */
 export async function GET(request: Request) {
     const cookieStore = await cookies();

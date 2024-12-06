@@ -21,11 +21,11 @@ const user = {
 };
 
 const baseNavigation = [
-    { name: "Home", href: "/dashboard/home" },
+    { name: "Home", href: "/dashboard" },
     { name: "Onboarding", href: "/dashboard/onboarding" },
 ];
 
-const userNavigation = [{ name: "Logout", href: "/api/auth/logout" }];
+const userNavigation = [{ name: "Logout", href: "/auth/logout" }];
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");

@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
-import Navigation from "../ui/navigation";
+import Navigation from "./ui/navigation";
 
 export default function DashboardHome() {
     return (
