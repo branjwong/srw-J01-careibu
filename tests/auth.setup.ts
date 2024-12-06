@@ -9,11 +9,19 @@ test("has title", async ({ page }) => {
     await expect(page).toHaveTitle(/Login/);
 });
 
-test("redirects if not authenticated", async ({ page }) => {
-    await page.goto("/dashboard");
+[
+    "/dashboard",
+    "/dashboard/home",
+    "/dashboard/onboarding",
+    "/dashboard/onboarding/background",
+    "/dashboard/onboarding/personal",
+].forEach((pageUrl) => {
+    test(`redirects ${pageUrl} if not authenticated`, async ({ page }) => {
+        await page.goto(pageUrl);
 
-    // Expects URL to redirect to dashboard.
-    await expect(page).toHaveURL("/auth/login");
+        // Expects URL to redirect to dashboard.
+        await expect(page).toHaveURL("/auth/login");
+    });
 });
 
 test("login failure", async ({ page }) => {
