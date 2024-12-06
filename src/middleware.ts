@@ -18,6 +18,7 @@ export default async function middleware(req: NextRequest) {
     const path = req.nextUrl.pathname;
     console.log("[middleware] Accessing page:", path);
 
+    // Check if route is protected or public
     const isProtectedRoute = checkProtectedRoute(req.nextUrl.pathname);
     const isPublicRoute = publicRoutes.includes(path);
 
@@ -25,13 +26,13 @@ export default async function middleware(req: NextRequest) {
     const token = await verifyAuth();
     const user = token;
 
-    // Redirect to /login if the user is not authenticated
+    // Redirect to Login if route is protected and  user not authenticated
     if (isProtectedRoute && !user) {
         console.log("[middleware] Rerouting to login.");
         return NextResponse.redirect(new URL("/auth/login", req.nextUrl));
     }
 
-    // Redirect to /dashboard if the user is authenticated
+    // Redirect to Dashboard if route is public and user is authenticated
     if (isPublicRoute && user) {
         console.log("[middleware] Rerouting to dashboard.");
         return NextResponse.redirect(new URL("/dashboard", req.nextUrl));

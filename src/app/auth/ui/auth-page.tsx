@@ -1,18 +1,18 @@
 import Image from "next/image";
 
-import { State } from "../actions/types";
+import { AuthFormState } from "../actions/types";
 
 import AuthForm from "./auth-form";
 
 /**
- * A page for authentication screens.
- * params:
- * - headerText: text rendered at the header
- * - buttonText: text rendered by the submission button
- * - authAction: a server action to be called upon form submission
- * - linkQuestion: text rendered after the submission button
- * - linkText: text rendered after the `linkQuestion`
- * - linkUrl: where the user is routed to upon clicking on the `linkText`
+ * @param {Object}  options - options for the page
+ * @param {string}  options.headerText - text rendered by the submission button
+ * @param {string}  options.buttonText - text rendered by the submission button
+ * @param {function}  options.authAction - a server action to be called upon form submission
+ * @param {string}  options.linkQuestion - text rendered after the submission button
+ * @param {string}  options.linkText - text rendered after the `linkQuestion`
+ * @param {string}  options.linkUrl - where the user is routed to upon clicking on the `linkText`
+ * @returns {JSX.Element} a page for authentication screens
  */
 export default function AuthPage({
     headerText,
@@ -25,13 +25,13 @@ export default function AuthPage({
     headerText: string;
     buttonText: string;
     authAction: (
-        state: Awaited<State>,
+        state: Awaited<AuthFormState>,
         payload: FormData
-    ) => State | Promise<State>;
+    ) => AuthFormState | Promise<AuthFormState>;
     linkQuestion: string;
     linkText: string;
     linkUrl: string;
-}) {
+}): JSX.Element {
     return (
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
